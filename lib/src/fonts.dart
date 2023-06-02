@@ -13,7 +13,7 @@ class BTL60 extends StatelessWidget {
   BTL60(this.text, this.color, this.maxLines);
 
   Widget build(BuildContext context) {
-    return AutoSizeText('text',
+    return AutoSizeText(text,
         maxLines: maxLines,
         style:
             GoogleFonts.yesevaOne(fontSize: 60, color: color ?? Colors.black));

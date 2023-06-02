@@ -11,22 +11,23 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+More information about the content of this package can be found on the following link https://astute-ltd.atlassian.net/wiki/spaces/AW/pages/786440/Astute+Design+System+DS.
+
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+More information about the content of this package can be found on the following link https://astute-ltd.atlassian.net/wiki/spaces/AW/pages/786440/Astute+Design+System+DS.
+
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+More information about the content of this package can be found on the following link https://astute-ltd.atlassian.net/wiki/spaces/AW/pages/786440/Astute+Design+System+DS.
+
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+More information about the content of this package can be found on the following link https://astute-ltd.atlassian.net/wiki/spaces/AW/pages/786440/Astute+Design+System+DS.
+
 
 ```dart
 const like = 'sample';
@@ -34,6 +35,4 @@ const like = 'sample';
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+More information about the content of this package can be found on the following link https://astute-ltd.atlassian.net/wiki/spaces/AW/pages/786440/Astute+Design+System+DS.
