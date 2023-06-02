@@ -92,13 +92,15 @@ class LargeAlertBox extends StatelessWidget {
         style: GoogleFonts.montserrat(
             fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),
       ),
-      content: Column(
-        children: [
-          Text(
-            message1,
-            style: GoogleFonts.montserrat(fontSize: 14, color: Colors.black),
-          ),
-        ],
+      content: SingleChildScrollView(
+        child: Column(
+          children: [
+            Text(
+              message1,
+              style: GoogleFonts.montserrat(fontSize: 14, color: Colors.black),
+            ),
+          ],
+        ),
       ),
       actions: <Widget>[
         TextButton(
