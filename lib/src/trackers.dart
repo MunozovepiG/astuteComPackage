@@ -204,20 +204,25 @@ class S2trackerIC extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          //item 1 - the first step
-
           Container(
             width: MediaQuery.of(context).size.width * 0.142,
             height: 24,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                //BB10('step 1', Colors.black, 1),
                 Container(
-                  height: 6,
+                  width: MediaQuery.of(context).size.height * 0.028,
+                  height: MediaQuery.of(context).size.height * 0.028,
                   decoration: BoxDecoration(
-                    color: AppTheme.colors.grey400,
+                    shape: BoxShape.circle,
+                    color: AppTheme.colors.blue500,
                   ),
+                  child: Center(
+                      child: Icon(
+                    Icons.check,
+                    size: MediaQuery.of(context).size.height * 0.02,
+                    color: Colors.white,
+                  )),
                 )
               ],
             ),
