@@ -22,7 +22,7 @@ class S1trackerIC extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                BB10('step 1', Colors.black, 1),
+                BB10('step 1', Colors.black, 1, TextAlign.center),
                 Container(
                   height: 6,
                   decoration: BoxDecoration(
@@ -231,7 +231,7 @@ class S2trackerIC extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                BB10('step 2', Colors.black, 1),
+                BB10('step 2', Colors.black, 1, TextAlign.center),
                 Container(
                   height: 6,
                   decoration: BoxDecoration(
@@ -457,7 +457,7 @@ class S3trackerIC extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                BB10('step 3', Colors.black, 1),
+                BB10('step 3', Colors.black, 1, TextAlign.center),
                 Container(
                   height: 6,
                   decoration: BoxDecoration(
@@ -698,7 +698,7 @@ class S4trackerIC extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                BB10('step 4', Colors.black, 1),
+                BB10('step 4', Colors.black, 1, TextAlign.center),
                 Container(
                   height: 6,
                   decoration: BoxDecoration(

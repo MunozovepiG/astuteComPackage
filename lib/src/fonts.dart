@@ -131,11 +131,14 @@ class BBRM14 extends StatelessWidget {
   final String title;
   final Color? color;
   final int maxLines;
-  BBRM14(this.title, this.color, this.maxLines);
+  final TextAlign textAlign;
+
+  BBRM14(this.title, this.color, this.maxLines, this.textAlign);
 
   Widget build(BuildContext context) {
     return AutoSizeText(title,
         maxLines: maxLines,
+        textAlign: textAlign,
         style:
             GoogleFonts.montserrat(fontSize: 14, color: color ?? Colors.black));
   }
@@ -146,11 +149,13 @@ class BBRS12 extends StatelessWidget {
   final String title;
   final Color? color;
   final int maxLines;
-  BBRS12(this.title, this.color, this.maxLines);
+  final TextAlign textAlign;
+  BBRS12(this.title, this.color, this.maxLines, this.textAlign);
 
   Widget build(BuildContext context) {
     return AutoSizeText(title,
         maxLines: maxLines,
+        textAlign: textAlign,
         style:
             GoogleFonts.montserrat(fontSize: 12, color: color ?? Colors.black));
   }
@@ -161,11 +166,13 @@ class BBBS12 extends StatelessWidget {
   final String title;
   final Color? color;
   final int maxLines;
-  BBBS12(this.title, this.color, this.maxLines);
+  final TextAlign textAlign;
+  BBBS12(this.title, this.color, this.maxLines, this.textAlign);
 
   Widget build(BuildContext context) {
     return AutoSizeText(title,
         maxLines: maxLines,
+        textAlign: textAlign,
         style: GoogleFonts.montserrat(
             fontSize: 12,
             color: color ?? Colors.black,
@@ -178,11 +185,13 @@ class BB10 extends StatelessWidget {
   final String title;
   final Color? color;
   final int maxLines;
-  BB10(this.title, this.color, this.maxLines);
+  final TextAlign textAlign;
+  BB10(this.title, this.color, this.maxLines, this.textAlign);
 
   Widget build(BuildContext context) {
     return AutoSizeText(title,
         maxLines: maxLines,
+        textAlign: textAlign,
         style: GoogleFonts.montserrat(
             fontSize: 10,
             fontWeight: FontWeight.w500,
@@ -195,11 +204,13 @@ class BR10 extends StatelessWidget {
   final String title;
   final Color? color;
   final int maxLines;
-  BR10(this.title, this.color, this.maxLines);
+  final TextAlign textAlign;
+  BR10(this.title, this.color, this.maxLines, this.textAlign);
 
   Widget build(BuildContext context) {
     return AutoSizeText(title,
         maxLines: maxLines,
+        textAlign: textAlign,
         style:
             GoogleFonts.montserrat(fontSize: 10, color: color ?? Colors.black));
   }

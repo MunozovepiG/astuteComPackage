@@ -220,8 +220,9 @@ class TrackingHeading extends StatelessWidget {
   final Color color;
   final String heading;
   final String description;
+  final TextAlign textAlign;
 
-  TrackingHeading(this.color, this.heading, this.description);
+  TrackingHeading(this.color, this.heading, this.description, this.textAlign);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -231,7 +232,7 @@ class TrackingHeading extends StatelessWidget {
         CBButton(),
         SS16(),
         BBLM14(heading, color, 1),
-        BB10(description, color, 1),
+        BB10(description, color, 1, textAlign),
       ]),
     );
   }

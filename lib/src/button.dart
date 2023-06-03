@@ -95,7 +95,7 @@ class IconTextButton extends StatelessWidget {
         color: color,
       ),
       onPressed: onPressed,
-      label: BB10(text, textColor, 1),
+      label: BB10(text, textColor, 1, TextAlign.start),
     );
   }
 }
@@ -118,7 +118,7 @@ class PlainTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
-      child: BB10(text, textColor, 1),
+      child: BB10(text, textColor, 1, TextAlign.start),
     );
   }
 }
@@ -196,7 +196,7 @@ class SmallView extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        label: BBBS12(buttonText, Colors.black, 1));
+        label: BBBS12(buttonText, Colors.black, 1, TextAlign.start));
   }
 }
 
