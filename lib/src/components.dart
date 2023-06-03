@@ -37,7 +37,7 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ILM12(widget.labelText, AppTheme.colors.grey800, 1),
         IconTextButton(
@@ -52,14 +52,21 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime currentDate = DateTime.now();
-    final DateTime sixteenYearsAgo =
-        currentDate.subtract(const Duration(days: 16 * 365));
+    final DateTime minDate =
+        currentDate.subtract(const Duration(days: 90 * 365)); // 90 years ago
+    final DateTime maxDate =
+        currentDate.subtract(const Duration(days: 14 * 365)); // 14 years ago
+
+    DateTime initialDate = maxDate;
+    if (currentDate.isBefore(maxDate)) {
+      initialDate = currentDate;
+    }
 
     final DateTime? pickedDate = await showDatePicker(
         context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime.now(),
-        lastDate: DateTime(2101),
+        initialDate: initialDate,
+        firstDate: minDate,
+        lastDate: currentDate,
         //neeed to review the calendar color how to make it dynamic
         builder: (context, child) {
           return Theme(
