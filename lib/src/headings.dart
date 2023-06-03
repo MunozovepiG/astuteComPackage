@@ -124,6 +124,7 @@ class BHCTSh extends StatelessWidget {
   final bool s3trackerC;
   final bool s3trackerIC;
   final bool s4trackerIC;
+  final String subheading;
 
   BHCTSh(
       this.backButton,
@@ -137,7 +138,8 @@ class BHCTSh extends StatelessWidget {
       this.s2trackerIC,
       this.s3trackerC,
       this.s3trackerIC,
-      this.s4trackerIC);
+      this.s4trackerIC,
+      this.subheading);
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +160,7 @@ class BHCTSh extends StatelessWidget {
         if (s3trackerIC) S3trackerIC(),
         if (s4trackerIC) S4trackerIC(),
         SS16(),
-        BBLM14('Subheading', Colors.black, 1),
+        BBLM14(subheading, Colors.black, 1),
       ]),
     );
   }
