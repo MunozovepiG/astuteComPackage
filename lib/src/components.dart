@@ -4,14 +4,16 @@ import 'package:astute_components/src/theme.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
-//calendar
-
 class CustomDatePicker extends StatefulWidget {
   final Color primaryColor;
   final ValueChanged<String>? onDateSelected;
   final ColorScheme colorscheme;
   final Color iconColor;
   final String labelText;
+
+  DateTime minDate;
+  DateTime maxDate;
+  DateTime intialDate;
   //final Color calendarColor;
 
   //final ValueChanged<DateTime> onChanged;
@@ -21,7 +23,10 @@ class CustomDatePicker extends StatefulWidget {
       required this.onDateSelected,
       required this.colorscheme,
       required this.iconColor,
-      required this.labelText
+      required this.labelText,
+      required this.minDate,
+      required this.maxDate,
+      required this.intialDate
       //required this.calendarColor,
       });
 
@@ -51,10 +56,10 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
   }
 
   Future<void> _selectDate(BuildContext context) async {
-    final DateTime currentDate = DateTime.now();
-    final DateTime minDate =
+    DateTime currentDate = DateTime.now();
+    DateTime minDate =
         currentDate.subtract(const Duration(days: 90 * 365)); // 90 years ago
-    final DateTime maxDate =
+    DateTime maxDate =
         currentDate.subtract(const Duration(days: 14 * 365)); // 14 years ago
 
     DateTime initialDate = maxDate;
@@ -64,8 +69,8 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
 
     final DateTime? pickedDate = await showDatePicker(
         context: context,
-        initialDate: initialDate,
-        firstDate: minDate,
+        initialDate: widget.intialDate,
+        firstDate: widget.minDate,
         lastDate: currentDate,
         //neeed to review the calendar color how to make it dynamic
         builder: (context, child) {
