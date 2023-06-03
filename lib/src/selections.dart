@@ -69,13 +69,15 @@ class MyDropdown extends StatefulWidget {
   final Function(String) onChanged;
   final Color iconColor;
   final Color borderColor;
+  final String labelText;
 
   MyDropdown(
       {required this.values,
       required this.preselectedValue,
       required this.onChanged,
       required this.iconColor,
-      required this.borderColor});
+      required this.borderColor,
+      required this.labelText});
 
   @override
   _MyDropdownState createState() => _MyDropdownState();
@@ -97,7 +99,7 @@ class _MyDropdownState extends State<MyDropdown> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ILM12('Sample', AppTheme.colors.grey650, 1),
+          ILM12(widget.labelText, AppTheme.colors.grey650, 1),
           SS8(),
           Container(
             width: MediaQuery.of(context).size.width * 0.90,
