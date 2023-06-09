@@ -13,6 +13,7 @@ class AppColors {
   final grey800 = const Color(0xffb1C1B1F);
   final green300 = const Color(0xffbCFF850);
   final green800 = const Color(0xffbb00330F);
+  final lavendar350 = const Color(0xffbbCECEFF);
   final lavender500 = const Color(0xfbbA386DA);
   final lavender650 = const Color(0xffbCECEFF);
   final lavender750 = const Color(0xfbbA386DA);

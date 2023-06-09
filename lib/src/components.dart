@@ -1,8 +1,8 @@
-import 'package:astute_components/src/button.dart';
-import 'package:astute_components/src/fonts.dart';
-import 'package:astute_components/src/theme.dart';
+import 'package:astute_components/astute_components.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
+
+//calendar
 
 class CustomDatePicker extends StatefulWidget {
   final Color primaryColor;
@@ -10,6 +10,7 @@ class CustomDatePicker extends StatefulWidget {
   final ColorScheme colorscheme;
   final Color iconColor;
   final String labelText;
+  final CrossAxisAlignment crossAxisAlignment;
 
   DateTime minDate;
   DateTime maxDate;
@@ -26,7 +27,8 @@ class CustomDatePicker extends StatefulWidget {
       required this.labelText,
       required this.minDate,
       required this.maxDate,
-      required this.intialDate
+      required this.intialDate,
+      required this.crossAxisAlignment
       //required this.calendarColor,
       });
 
@@ -42,10 +44,9 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      //  mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: widget.crossAxisAlignment,
       children: [
-        ILM12(widget.labelText, AppTheme.colors.grey800, 1),
+        BB10(widget.labelText, AppTheme.colors.grey800, 1, TextAlign.left),
         IconTextButton(
             icon: Icons.calendar_month_outlined,
             color: widget.iconColor,
@@ -88,5 +89,68 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
         widget.onDateSelected!(formattedDate);
       }
     }
+  }
+}
+
+class MonthlyCalendar extends StatefulWidget {
+  final Color primaryColor;
+  final ValueChanged<String>? onDateSelected;
+  final ColorScheme colorscheme;
+  final Color iconColor;
+  final String labelText;
+  final CrossAxisAlignment crossAxisAlignment;
+
+  MonthlyCalendar(
+      {required this.primaryColor,
+      required this.onDateSelected,
+      required this.colorscheme,
+      required this.crossAxisAlignment,
+      required this.iconColor,
+      required this.labelText});
+
+  @override
+  _MonthlyCalendarState createState() => _MonthlyCalendarState();
+}
+
+class _MonthlyCalendarState extends State<MonthlyCalendar> {
+  DateTime selectedDate = DateTime.now();
+  String formattedDate = 'dd/mm.yyy';
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: widget.crossAxisAlignment,
+      children: [
+        PLS10(widget.labelText, AppTheme.colors.grey800, 1),
+        IconTextButton(
+            icon: Icons.calendar_month_outlined,
+            color: widget.iconColor,
+            text: formattedDate,
+            textColor: AppTheme.colors.black,
+            onPressed: () {
+              showDatePicker(
+                  context: context,
+                  initialDate: selectedDate,
+                  firstDate: DateTime(selectedDate.year, selectedDate.month, 1),
+                  lastDate:
+                      DateTime(selectedDate.year, selectedDate.month + 1, 0),
+                  builder: (context, child) {
+                    return Theme(
+                        data: Theme.of(context)
+                            .copyWith(colorScheme: widget.colorscheme),
+                        child: child!);
+                  }).then((pickedDate) {
+                if (pickedDate != null) {
+                  setState(() {
+                    selectedDate = pickedDate;
+                    formattedDate =
+                        DateFormat('EEE, MMM d, yyyy').format(selectedDate);
+                    print(selectedDate);
+                  });
+                }
+              });
+            }),
+      ],
+    );
   }
 }
