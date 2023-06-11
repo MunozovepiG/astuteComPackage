@@ -11,3 +11,4 @@ export 'src/spaces.dart';
 export 'src/textFormField.dart';
 export 'src/theme.dart';
 export 'src/trackers.dart';
+export 'src/label.dart';

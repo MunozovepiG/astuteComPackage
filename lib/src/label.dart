@@ -14,7 +14,11 @@ class TwoItemLabel extends StatelessWidget {
         SizedBox(
           height: 4,
         ),
-        BBRM14('$descriptionText', color, 1, TextAlign.left),
+        BBLM14(
+          '$descriptionText',
+          color,
+          1,
+        ),
       ],
     );
   }
