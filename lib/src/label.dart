@@ -9,6 +9,7 @@ class TwoItemLabel extends StatelessWidget {
   TwoItemLabel(this.labelText, this.color, this.descriptionText);
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         BBRS12('$labelText', color, 1, TextAlign.left),
         SizedBox(
