@@ -114,7 +114,7 @@ class MonthlyCalendar extends StatefulWidget {
 
 class _MonthlyCalendarState extends State<MonthlyCalendar> {
   DateTime selectedDate = DateTime.now();
-  String formattedDate = 'dd/mm.yyy';
+  String formattedDate = 'dd/mm/yyyy';
 
   @override
   Widget build(BuildContext context) {
@@ -147,6 +147,9 @@ class _MonthlyCalendarState extends State<MonthlyCalendar> {
                         DateFormat('EEE, MMM d, yyyy').format(selectedDate);
                     print(selectedDate);
                   });
+                  if (widget.onDateSelected != null) {
+                    widget.onDateSelected!(formattedDate);
+                  }
                 }
               });
             }),
