@@ -1,9 +1,6 @@
-import 'package:astute_components/src/button.dart';
-import 'package:astute_components/src/fonts.dart';
-import 'package:astute_components/src/spaces.dart';
-import 'package:astute_components/src/theme.dart';
-import 'package:astute_components/src/trackers.dart';
 import 'package:flutter/material.dart';
+
+import '../astute_components.dart';
 
 class HeadingTemplate extends StatelessWidget {
   @override
@@ -49,7 +46,7 @@ class PHTSHeader extends StatelessWidget {
 
         if (showTracker) S1trackerC(),
         SS36(),
-        BBLM14('Subheading', Colors.black, 1)
+        BBLM14('Subheading', Colors.black, 1, TextAlign.center)
       ],
     );
   }
@@ -91,18 +88,15 @@ class BAHTSh extends StatelessWidget {
 
         //profile image
 
-        getCircleImage(imageUrl),
-
-        MS24(),
-        SH25(title, AppTheme.colors.blue500, 1),
-        SS16(),
-        //the conditional fields
-
+        // getCircleImage(imageUrl),
         if (s1TrackerC) S1trackerC(),
         if (s1TrackerIC) S1trackerIC(),
         if (s4TrackerC) S4trackerC(),
-        SS36(),
-        BBLM14(subheading, Colors.black, 1)
+        MS24(),
+        SH25(title, AppTheme.colors.blue500, 1),
+
+        MS24(),
+        BBLM14(subheading, Colors.black, 1, TextAlign.center)
       ]),
     );
   }
@@ -149,9 +143,6 @@ class BHCTSh extends StatelessWidget {
         LS64(),
         if (backButton) CBButton(),
         SS16(),
-        BTM36(title, titleColor, 1),
-        SH18(caption, captionColor, 1),
-        SS16(),
         if (s1trackerC) S1trackerC(),
         if (s1trackerIC) S1trackerIC(),
         if (s2trackerC) S2trackerC(),
@@ -160,7 +151,10 @@ class BHCTSh extends StatelessWidget {
         if (s3trackerIC) S3trackerIC(),
         if (s4trackerIC) S4trackerIC(),
         SS16(),
-        BBLM14(subheading, Colors.black, 1),
+        BTM36(title, titleColor, 1),
+        SH18(caption, captionColor, 1),
+        MS24(),
+        BBLM14(subheading, Colors.black, 1, TextAlign.center),
       ]),
     );
   }
@@ -196,17 +190,18 @@ class HeaderwAction extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            BBLM14(pageHeadng, Colors.black, 1),
+            BBLM14(pageHeadng, Colors.black, 1, TextAlign.center),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             BasicPlainTextButton(
-                color: AppTheme.colors.green800,
-                text: buttonText,
-                onPressed: onPressed,
-                textColor: AppTheme.colors.green800),
+              color: AppTheme.colors.green800,
+              text: buttonText,
+              onPressed: onPressed,
+              textColor: AppTheme.colors.green800,
+            ),
           ],
         ),
         SS16(),
@@ -222,9 +217,8 @@ class TrackingHeading extends StatelessWidget {
   final Color color;
   final String heading;
   final String description;
-  final TextAlign textAlign;
 
-  TrackingHeading(this.color, this.heading, this.description, this.textAlign);
+  TrackingHeading(this.color, this.heading, this.description);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -233,8 +227,8 @@ class TrackingHeading extends StatelessWidget {
         SS36(),
         CBButton(),
         SS16(),
-        BBLM14(heading, color, 1),
-        BB10(description, color, 1, textAlign),
+        BBLM14(heading, color, 1, TextAlign.center),
+        BB10(description, color, 1, TextAlign.center),
       ]),
     );
   }

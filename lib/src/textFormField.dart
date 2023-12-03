@@ -15,20 +15,21 @@ class MyCustomTextField extends StatelessWidget {
   final Color backgroundColor;
   final String inputLabelText;
   final List<TextInputFormatter>? inputFormatters;
+  int? maxLength;
 
-  MyCustomTextField({
-    Key? key,
-    required this.controller,
-    this.validator,
-    this.hintText,
-    this.labelText,
-    this.keyboardType,
-    this.obscureText = false,
-    this.onChanged,
-    required this.backgroundColor,
-    required this.inputLabelText,
-    this.inputFormatters,
-  });
+  MyCustomTextField(
+      {Key? key,
+      required this.controller,
+      this.validator,
+      this.hintText,
+      this.labelText,
+      this.keyboardType,
+      this.obscureText = false,
+      this.onChanged,
+      required this.backgroundColor,
+      required this.inputLabelText,
+      this.inputFormatters,
+      this.maxLength});
 
   @override
   Widget build(BuildContext context) {
@@ -42,22 +43,37 @@ class MyCustomTextField extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width * 0.90,
             height: 56,
-            color: backgroundColor,
-            child: TextFormField(
-              controller: controller,
-              inputFormatters: inputFormatters,
-              validator: validator,
-              decoration: InputDecoration(
-                  hintText: hintText,
-                  labelText: labelText,
-                  labelStyle: TextStyle(
-                    color: AppTheme.colors.grey650,
-                    fontSize: 12,
-                    fontFamily: 'Roboto',
-                  )),
-              keyboardType: keyboardType,
-              obscureText: obscureText,
-              onChanged: onChanged,
+            decoration: BoxDecoration(
+              color: backgroundColor,
+              border: Border(
+                bottom: BorderSide(
+                  color: AppTheme
+                      .colors.black, // Set your desired border color here
+                  width: 0.5, // Set the desired border width
+                ),
+              ),
+            ),
+            child: Padding(
+              padding: EdgeInsets.only(
+                  left: 12.0, top: (maxLength != null) ? 24 : 0),
+              child: TextFormField(
+                controller: controller,
+                inputFormatters: inputFormatters,
+                validator: validator,
+                maxLength: maxLength,
+                decoration: InputDecoration(
+                    hintText: hintText,
+                    border: InputBorder.none,
+                    labelText: labelText,
+                    labelStyle: TextStyle(
+                      color: AppTheme.colors.grey650,
+                      fontSize: 12,
+                      fontFamily: 'Roboto',
+                    )),
+                keyboardType: keyboardType,
+                obscureText: obscureText,
+                onChanged: onChanged,
+              ),
             ),
           ),
         ],

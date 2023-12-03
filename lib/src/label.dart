@@ -16,10 +16,8 @@ class TwoItemLabel extends StatelessWidget {
           height: 4,
         ),
         BBLM14(
-          '$descriptionText',
-          color,
-          1,
-        ),
+            '$descriptionText', color, 1, TextAlign.left // this has been added
+            ),
       ],
     );
   }
