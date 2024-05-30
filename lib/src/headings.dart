@@ -2,68 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../astute_components.dart';
 
-class HeadingTemplate extends StatelessWidget {
-  @override
-  final String headingText;
-  final Color headingColor;
-  final String subheadingText;
-
-  HeadingTemplate(this.headingText, this.headingColor, this.subheadingText);
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        StandardTopSpace(),
-        CBButton(),
-        SS16(),
-        BTM36(headingText, headingColor, 1),
-        SH18(subheadingText, headingColor, 1)
-      ],
-    );
-  }
-}
-
-//Centred picture + heading + tracker + subheading
-
-class PHTSHeader extends StatelessWidget {
-  final String imageUrl;
-  final bool showTracker; // the controller
-
-  PHTSHeader(this.imageUrl, this.showTracker);
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        StandardTopSpace(),
-        CBButton(),
-        //profile image
-
-        getCircleImage(imageUrl),
-
-        MS24(),
-        SH25('title', AppTheme.colors.blue500, 1),
-        SS16(),
-        //the conditional fields
-
-        if (showTracker) S1trackerC(),
-        SS36(),
-        BBLM14('Subheading', Colors.black, 1, TextAlign.center)
-      ],
-    );
-  }
-}
-
-//the avtar
-Container getCircleImage(String imageUrl) {
-  return Container(
-    height: 40,
-    width: 40,
-    decoration: BoxDecoration(
-      image: DecorationImage(image: NetworkImage(imageUrl), fit: BoxFit.cover),
-      shape: BoxShape.circle,
-    ),
-  );
-}
-
 //the header set one (back button, avtar, heading, tracker, subheading)
 
 class BAHTSh extends StatelessWidget {
@@ -72,11 +10,12 @@ class BAHTSh extends StatelessWidget {
   final bool s1TrackerC;
   final bool s4TrackerC;
   final String title;
-  final String subheading;
+
   final bool backButton;
+  final VoidCallback cancelAction;
 
   BAHTSh(this.imageUrl, this.s1TrackerIC, this.s1TrackerC, this.s4TrackerC,
-      this.title, this.subheading, this.backButton);
+      this.title, this.backButton, this.cancelAction);
 
   @override
   Widget build(BuildContext context) {
@@ -84,9 +23,12 @@ class BAHTSh extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.90,
       child: Column(children: [
         StandardTopSpace(),
-        if (backButton) CBButton(),
-        SS16(),
+        if (backButton)
+          CBButton(
+            cancelAction: cancelAction,
+          ),
 
+        SS32(),
         //profile image
 
         // getCircleImage(imageUrl),
@@ -94,10 +36,7 @@ class BAHTSh extends StatelessWidget {
         if (s1TrackerIC) S1trackerIC(),
         if (s4TrackerC) S4trackerC(),
         MS24(),
-        SH25(title, AppTheme.colors.blue500, 1),
-
-        MS24(),
-        BBLM14(subheading, Colors.black, 1, TextAlign.center)
+        SH25(title, Colors.black, 1),
       ]),
     );
   }
@@ -120,6 +59,7 @@ class BHCTSh extends StatelessWidget {
   final bool s3trackerIC;
   final bool s4trackerIC;
   final String subheading;
+  final VoidCallback cancelAction;
 
   BHCTSh(
       this.backButton,
@@ -134,7 +74,8 @@ class BHCTSh extends StatelessWidget {
       this.s3trackerC,
       this.s3trackerIC,
       this.s4trackerIC,
-      this.subheading);
+      this.subheading,
+      this.cancelAction);
 
   @override
   Widget build(BuildContext context) {
@@ -142,7 +83,10 @@ class BHCTSh extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.90,
       child: Column(children: [
         LS64(),
-        if (backButton) CBButton(),
+        if (backButton)
+          CBButton(
+            cancelAction: cancelAction,
+          ),
         SS16(),
         if (s1trackerC) S1trackerC(),
         if (s1trackerIC) S1trackerIC(),
@@ -155,7 +99,7 @@ class BHCTSh extends StatelessWidget {
         BTM36(title, titleColor, 1),
         SH18(caption, captionColor, 1),
         MS24(),
-        BBLM14(subheading, Colors.black, 1, TextAlign.center),
+        BBLM14(subheading, Colors.black, 1, TextAlign.left),
       ]),
     );
   }
@@ -169,9 +113,10 @@ class HeaderwAction extends StatelessWidget {
   final String pageHeadng;
   final String buttonText;
   final VoidCallback onPressed;
+  final VoidCallback cancelAction;
 
-  HeaderwAction(
-      this.imageUrl, this.pageHeadng, this.buttonText, this.onPressed);
+  HeaderwAction(this.imageUrl, this.pageHeadng, this.buttonText, this.onPressed,
+      this.cancelAction);
 
   @override
   Widget build(BuildContext context) {
@@ -179,30 +124,31 @@ class HeaderwAction extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.90,
       child: Column(children: [
         SS36(),
-        CBButton(),
+        CBButton(
+          cancelAction: cancelAction,
+        ),
         SS8(),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            getCircleImage(imageUrl),
+            // getCircleImage(imageUrl),
           ],
         ),
         SS16(),
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            BBLM14(pageHeadng, Colors.black, 1, TextAlign.center),
+            BBLM14(pageHeadng, Colors.black, 1, TextAlign.left),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             BasicPlainTextButton(
-              color: AppTheme.colors.green800,
-              text: buttonText,
-              onPressed: onPressed,
-              textColor: AppTheme.colors.green800,
-            ),
+                color: AppTheme.colors.green800,
+                text: buttonText,
+                onPressed: onPressed,
+                textColor: AppTheme.colors.green800),
           ],
         ),
         SS16(),
@@ -218,15 +164,19 @@ class TrackingHeading extends StatelessWidget {
   final Color color;
   final String heading;
   final String description;
+  final VoidCallback cancelAction;
 
-  TrackingHeading(this.color, this.heading, this.description);
+  TrackingHeading(
+      this.color, this.heading, this.description, this.cancelAction);
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.90,
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         SS36(),
-        CBButton(),
+        CBButton(
+          cancelAction: cancelAction,
+        ),
         SS16(),
         BBLM14(heading, color, 1, TextAlign.center),
         BB10(description, color, 1, TextAlign.center),

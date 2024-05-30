@@ -16,80 +16,19 @@ class S1trackerIC extends StatelessWidget {
         children: [
           //item 1 - the first step
 
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                BB10('step 1', Colors.black, 1, TextAlign.center),
-                Container(
-                  height: 6,
-                  decoration: BoxDecoration(
-                      color: AppTheme.colors.blue200,
-                      border: Border(
-                          bottom: BorderSide(color: AppTheme.colors.blue500))),
-                )
-              ],
-            ),
-          ),
+          ActiveStep('step 1'),
 
           //item 2 - the second step
 
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                //BB10('step 1', Colors.black, 1),
-                Container(
-                  height: 6,
-                  decoration: BoxDecoration(
-                    color: AppTheme.colors.grey400,
-                  ),
-                )
-              ],
-            ),
-          ),
+          InActvieStep(),
 
           //item 3 - the third step
 
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                //BB10('step 1', Colors.black, 1),
-                Container(
-                  height: 6,
-                  decoration: BoxDecoration(
-                    color: AppTheme.colors.grey400,
-                  ),
-                )
-              ],
-            ),
-          ),
+          InActvieStep(),
 
           //item 4 - the fourth step
 
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                //BB10('step 1', Colors.black, 1),
-                Container(
-                  height: 6,
-                  decoration: BoxDecoration(
-                    color: AppTheme.colors.grey400,
-                  ),
-                )
-              ],
-            ),
-          )
+          InActvieStep(),
         ],
       ),
     );
@@ -108,29 +47,7 @@ class S1trackerC extends StatelessWidget {
         children: [
           //item 1 - the first step
 
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 25,
-                  height: 25,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFFDFAF5),
-                    shape: OvalBorder(
-                      side: BorderSide(width: 0.25, color: Color(0xFF3E63D3)),
-                    ),
-                  ),
-                  child: Center(
-                      child: Icon(Icons.check,
-                          size: MediaQuery.of(context).size.height * 0.02,
-                          color: AppTheme.colors.blue500)),
-                )
-              ],
-            ),
-          ),
+          CompletedStep(),
 
           //item 2 - the second step
 
@@ -206,86 +123,18 @@ class S2trackerIC extends StatelessWidget {
         children: [
           //item 1 - the first step
 
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 25,
-                  height: 25,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFFDFAF5),
-                    shape: OvalBorder(
-                      side: BorderSide(width: 0.25, color: Color(0xFF3E63D3)),
-                    ),
-                  ),
-                  child: Center(
-                      child: Icon(Icons.check,
-                          size: MediaQuery.of(context).size.height * 0.02,
-                          color: AppTheme.colors.blue500)),
-                )
-              ],
-            ),
-          ),
+          CompletedStep(),
           //item 2 - the second step
 
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                BB10('step 2', Colors.black, 1, TextAlign.center),
-                Container(
-                  height: 6,
-                  decoration: BoxDecoration(
-                      color: AppTheme.colors.blue200,
-                      border: Border(
-                          bottom: BorderSide(color: AppTheme.colors.blue500))),
-                )
-              ],
-            ),
-          ),
+          ActiveStep('step 2'),
 
           //item 3 - the third step
 
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                //BB10('step 1', Colors.black, 1),
-                Container(
-                  height: 6,
-                  decoration: BoxDecoration(
-                    color: AppTheme.colors.grey400,
-                  ),
-                )
-              ],
-            ),
-          ),
+          InActvieStep(),
 
           //item 4 - the fourth step
 
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                //BB10('step 1', Colors.black, 1),
-                Container(
-                  height: 6,
-                  decoration: BoxDecoration(
-                    color: AppTheme.colors.grey400,
-                  ),
-                )
-              ],
-            ),
-          )
+          InActvieStep(),
         ],
       ),
     );
@@ -406,93 +255,16 @@ class S3trackerIC extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           //item 1 - the first step
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 25,
-                  height: 25,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFFDFAF5),
-                    shape: OvalBorder(
-                      side: BorderSide(width: 0.25, color: Color(0xFF3E63D3)),
-                    ),
-                  ),
-                  child: Center(
-                      child: Icon(Icons.check,
-                          size: MediaQuery.of(context).size.height * 0.02,
-                          color: AppTheme.colors.blue500)),
-                )
-              ],
-            ),
-          ),
+          CompletedStep(),
 
           //item 2 - the second step
-
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 25,
-                  height: 25,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFFDFAF5),
-                    shape: OvalBorder(
-                      side: BorderSide(width: 0.25, color: Color(0xFF3E63D3)),
-                    ),
-                  ),
-                  child: Center(
-                      child: Icon(Icons.check,
-                          size: MediaQuery.of(context).size.height * 0.02,
-                          color: AppTheme.colors.blue500)),
-                )
-              ],
-            ),
-          ),
+          CompletedStep(),
           //item 3 - the third step
 
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                BB10('step 3', Colors.black, 1, TextAlign.center),
-                Container(
-                  height: 6,
-                  decoration: BoxDecoration(
-                      color: AppTheme.colors.blue200,
-                      border: Border(
-                          bottom: BorderSide(color: AppTheme.colors.blue500))),
-                )
-              ],
-            ),
-          ),
+          ActiveStep('step 3'),
 
           //item 4 - the fourth step
-
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                //BB10('step 1', Colors.black, 1),
-                Container(
-                  height: 6,
-                  decoration: BoxDecoration(
-                    color: AppTheme.colors.grey400,
-                  ),
-                )
-              ],
-            ),
-          )
+          InActvieStep(),
         ],
       ),
     );
@@ -620,101 +392,17 @@ class S4trackerIC extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           //item 1 - the first step
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 25,
-                  height: 25,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFFDFAF5),
-                    shape: OvalBorder(
-                      side: BorderSide(width: 0.25, color: Color(0xFF3E63D3)),
-                    ),
-                  ),
-                  child: Center(
-                      child: Icon(Icons.check,
-                          size: MediaQuery.of(context).size.height * 0.02,
-                          color: AppTheme.colors.blue500)),
-                )
-              ],
-            ),
-          ),
+          CompletedStep(),
 
           //item 2 - the second step
-
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 25,
-                  height: 25,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFFDFAF5),
-                    shape: OvalBorder(
-                      side: BorderSide(width: 0.25, color: Color(0xFF3E63D3)),
-                    ),
-                  ),
-                  child: Center(
-                      child: Icon(Icons.check,
-                          size: MediaQuery.of(context).size.height * 0.02,
-                          color: AppTheme.colors.blue500)),
-                )
-              ],
-            ),
-          ),
+          CompletedStep(),
 
           //item 3 - the third step
-
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 25,
-                  height: 25,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFFDFAF5),
-                    shape: OvalBorder(
-                      side: BorderSide(width: 0.25, color: Color(0xFF3E63D3)),
-                    ),
-                  ),
-                  child: Center(
-                      child: Icon(Icons.check,
-                          size: MediaQuery.of(context).size.height * 0.02,
-                          color: AppTheme.colors.blue500)),
-                )
-              ],
-            ),
-          ),
+          CompletedStep(),
 
           //item 4 - the final step
 
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                BB10('step 4', Colors.black, 1, TextAlign.center),
-                Container(
-                  height: 6,
-                  decoration: BoxDecoration(
-                      color: AppTheme.colors.blue200,
-                      border: Border(
-                          bottom: BorderSide(color: AppTheme.colors.blue500))),
-                )
-              ],
-            ),
-          ),
+          ActiveStep('step 4')
         ],
       ),
     );
@@ -732,106 +420,105 @@ class S4trackerC extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           //item 1 - the first step
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 25,
-                  height: 25,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFFDFAF5),
-                    shape: OvalBorder(
-                      side: BorderSide(width: 0.25, color: Color(0xFF3E63D3)),
-                    ),
-                  ),
-                  child: Center(
-                      child: Icon(Icons.check,
-                          size: MediaQuery.of(context).size.height * 0.02,
-                          color: AppTheme.colors.blue500)),
-                )
-              ],
-            ),
-          ),
+          CompletedStep(),
 
           //item 2 - the second step
-
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 25,
-                  height: 25,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFFDFAF5),
-                    shape: OvalBorder(
-                      side: BorderSide(width: 0.25, color: Color(0xFF3E63D3)),
-                    ),
-                  ),
-                  child: Center(
-                      child: Icon(Icons.check,
-                          size: MediaQuery.of(context).size.height * 0.02,
-                          color: AppTheme.colors.blue500)),
-                )
-              ],
-            ),
-          ),
+          CompletedStep(),
 
           //item 3 - the third step
 
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 25,
-                  height: 25,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFFDFAF5),
-                    shape: OvalBorder(
-                      side: BorderSide(width: 0.25, color: Color(0xFF3E63D3)),
-                    ),
-                  ),
-                  child: Center(
-                      child: Icon(Icons.check,
-                          size: MediaQuery.of(context).size.height * 0.02,
-                          color: AppTheme.colors.blue500)),
-                )
-              ],
-            ),
-          ),
+          CompletedStep(),
           //item 4 - the fourth step
 
-          Container(
-            width: 58.65,
-            height: 25,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 25,
-                  height: 25,
-                  decoration: ShapeDecoration(
-                    color: Color(0xFFFDFAF5),
-                    shape: OvalBorder(
-                      side: BorderSide(width: 0.25, color: Color(0xFF3E63D3)),
-                    ),
-                  ),
-                  child: Center(
-                      child: Icon(Icons.check,
-                          size: MediaQuery.of(context).size.height * 0.02,
-                          color: AppTheme.colors.blue500)),
-                )
-              ],
-            ),
+          CompletedStep()
+        ],
+      ),
+    );
+  }
+}
+
+//the checked component
+
+class CompletedStep extends StatelessWidget {
+  const CompletedStep({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        width: 58.65,
+        height: 25,
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                child: Icon(
+                  Icons.check,
+                  size: 18,
+                ),
+              ),
+              Container(
+                height: 6,
+                decoration: BoxDecoration(
+                    color: AppTheme.colors.blue500,
+                    border: Border(
+                        bottom: BorderSide(color: AppTheme.colors.blue500))),
+              )
+            ]));
+  }
+}
+
+//active step
+
+class ActiveStep extends StatelessWidget {
+  @override
+  String step;
+  ActiveStep(this.step);
+
+  Widget build(BuildContext context) {
+    return Container(
+      width: 58.65,
+      height: 25,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          BB10(
+            step,
+            Colors.black,
+            1,
+            TextAlign.left,
           ),
+          SizedBox(
+            height: 2,
+          ),
+          Container(
+            height: 6,
+            decoration: BoxDecoration(
+                color: AppTheme.colors.blue500,
+                border:
+                    Border(bottom: BorderSide(color: AppTheme.colors.blue500))),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class InActvieStep extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 58.65,
+      height: 25,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          //BB10('step 1', Colors.black, 1),
+          Container(
+            height: 6,
+            decoration: BoxDecoration(
+              color: AppTheme.colors.grey400,
+            ),
+          )
         ],
       ),
     );

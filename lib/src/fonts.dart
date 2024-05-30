@@ -20,6 +20,24 @@ class BTL60 extends StatelessWidget {
   }
 }
 
+class BTM18 extends StatelessWidget {
+  @override
+  final String title;
+  final Color? color;
+  final int? maxLines;
+  BTM18(this.title, this.color, this.maxLines);
+
+  Widget build(BuildContext context) {
+    return AutoSizeText(title,
+        maxLines: maxLines,
+        style: GoogleFonts.montserrat(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+          color: color ?? Colors.black,
+        ));
+  }
+}
+
 class BTM16 extends StatelessWidget {
   @override
   final String title;
@@ -132,13 +150,11 @@ class BBLM14 extends StatelessWidget {
   final String title;
   final Color? color;
   final int maxLines;
-  TextAlign? align;
-  BBLM14(this.title, this.color, this.maxLines, this.align);
+  BBLM14(this.title, this.color, this.maxLines, TextAlign left);
 
   Widget build(BuildContext context) {
     return AutoSizeText(title,
         maxLines: maxLines,
-        textAlign: align,
         style: GoogleFonts.montserrat(
             fontSize: 14,
             fontWeight: FontWeight.bold,
@@ -151,14 +167,11 @@ class BBRM14 extends StatelessWidget {
   final String title;
   final Color? color;
   final int maxLines;
-  final TextAlign textAlign;
-
-  BBRM14(this.title, this.color, this.maxLines, this.textAlign);
+  BBRM14(this.title, this.color, this.maxLines, TextAlign left);
 
   Widget build(BuildContext context) {
     return AutoSizeText(title,
         maxLines: maxLines,
-        textAlign: textAlign,
         style:
             GoogleFonts.montserrat(fontSize: 14, color: color ?? Colors.black));
   }
@@ -169,13 +182,11 @@ class BBRS12 extends StatelessWidget {
   final String title;
   final Color? color;
   final int maxLines;
-  final TextAlign textAlign;
-  BBRS12(this.title, this.color, this.maxLines, this.textAlign);
+  BBRS12(this.title, this.color, this.maxLines, TextAlign left);
 
   Widget build(BuildContext context) {
     return AutoSizeText(title,
         maxLines: maxLines,
-        textAlign: textAlign,
         style:
             GoogleFonts.montserrat(fontSize: 12, color: color ?? Colors.black));
   }
@@ -186,13 +197,11 @@ class BBBS12 extends StatelessWidget {
   final String title;
   final Color? color;
   final int maxLines;
-  final TextAlign textAlign;
-  BBBS12(this.title, this.color, this.maxLines, this.textAlign);
+  BBBS12(this.title, this.color, this.maxLines);
 
   Widget build(BuildContext context) {
     return AutoSizeText(title,
         maxLines: maxLines,
-        textAlign: textAlign,
         style: GoogleFonts.montserrat(
             fontSize: 12,
             color: color ?? Colors.black,
@@ -205,13 +214,11 @@ class BB10 extends StatelessWidget {
   final String title;
   final Color? color;
   final int maxLines;
-  final TextAlign textAlign;
-  BB10(this.title, this.color, this.maxLines, this.textAlign);
+  BB10(this.title, this.color, this.maxLines, TextAlign left);
 
   Widget build(BuildContext context) {
     return AutoSizeText(title,
         maxLines: maxLines,
-        textAlign: textAlign,
         style: GoogleFonts.montserrat(
             fontSize: 10,
             fontWeight: FontWeight.w500,
@@ -224,13 +231,11 @@ class BR10 extends StatelessWidget {
   final String title;
   final Color? color;
   final int maxLines;
-  final TextAlign textAlign;
-  BR10(this.title, this.color, this.maxLines, this.textAlign);
+  BR10(this.title, this.color, this.maxLines);
 
   Widget build(BuildContext context) {
     return AutoSizeText(title,
         maxLines: maxLines,
-        textAlign: textAlign,
         style:
             GoogleFonts.montserrat(fontSize: 10, color: color ?? Colors.black));
   }
@@ -272,6 +277,39 @@ class TBM14 extends StatelessWidget {
   }
 }
 
+class BR16 extends StatelessWidget {
+  @override
+  final String title;
+  final Color? color;
+  final int maxLines;
+  BR16(this.title, this.color, this.maxLines);
+
+  Widget build(BuildContext context) {
+    return AutoSizeText(title,
+        maxLines: maxLines,
+        style: GoogleFonts.roboto(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: color ?? Colors.black));
+  }
+}
+
+class RR14 extends StatelessWidget {
+  @override
+  final String title;
+  final Color? color;
+  final int maxLines;
+  RR14(this.title, this.color, this.maxLines);
+
+  Widget build(BuildContext context) {
+    return AutoSizeText(title,
+        maxLines: maxLines,
+        style: GoogleFonts.roboto(
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+            color: color ?? Colors.black));
+  }
+}
 //text + icon font
 
 //Lable fonts
@@ -305,5 +343,24 @@ class PLS10 extends StatelessWidget {
           color: color ?? Colors.black,
           fontWeight: FontWeight.w500,
         ));
+  }
+}
+
+//the error message
+class ErrorMessage extends StatelessWidget {
+  String errorText;
+
+  ErrorMessage({required this.errorText});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(
+          height: 2,
+        ),
+        ILM12(errorText, Color(0xfbbF23E3E), 1),
+      ],
+    );
   }
 }

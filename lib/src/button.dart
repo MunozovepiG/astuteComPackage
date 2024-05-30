@@ -35,15 +35,19 @@ class NeonActiveButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Color(0xffbCFF850)),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(100.0),
-          ))),
-      onPressed: onPressed,
-      child: TBM14(text, AppTheme.colors.green800, 1),
+    return Container(
+      height: 56,
+      width: MediaQuery.of(context).size.width * 0.88,
+      child: ElevatedButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Color(0xffb3E63D3)),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+            ))),
+        onPressed: onPressed,
+        child: TBM14(text, Colors.white, 1),
+      ),
     );
   }
 }
@@ -57,16 +61,21 @@ class DisabledRoundButton extends StatelessWidget {
   DisabledRoundButton(this.text, this.onPressed);
 
   @override
+  final Color grey650Opacity = AppTheme.colors.grey650.withOpacity(0.8);
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(AppTheme.colors.grey400),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(100.0),
-          ))),
-      onPressed: onPressed,
-      child: TBM14(text, AppTheme.colors.grey800, 1),
+    return Container(
+      height: 56,
+      width: MediaQuery.of(context).size.width * 0.88,
+      child: ElevatedButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(AppTheme.colors.grey200),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+            ))),
+        onPressed: onPressed,
+        child: TBM14(text, grey650Opacity, 1),
+      ),
     );
   }
 }
@@ -95,7 +104,7 @@ class IconTextButton extends StatelessWidget {
         color: color,
       ),
       onPressed: onPressed,
-      label: BB10(text, textColor, 1, TextAlign.start),
+      label: BB10(text, textColor, 1, TextAlign.left),
     );
   }
 }
@@ -118,7 +127,7 @@ class PlainTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
-      child: BB10(text, textColor, 1, TextAlign.start),
+      child: BB10(text, textColor, 1, TextAlign.left),
     );
   }
 }
@@ -126,20 +135,37 @@ class PlainTextButton extends StatelessWidget {
 //back button
 
 class CBButton extends StatelessWidget {
+  final VoidCallback cancelAction;
+
+  CBButton({required this.cancelAction});
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      child: Row(
-        children: [
-          Icon(
-            Icons.arrow_back,
-            size: 14,
-          ),
-          SizedBox(
-            width: 4,
-          ),
-          PLS10('Back', Colors.black, 1)
-        ],
+      child: Container(
+        width: MediaQuery.of(context).size.width * 1.0,
+        // color: Colors.green,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              child: Row(children: [
+                Icon(
+                  Icons.arrow_back,
+                  size: 14,
+                ),
+                SizedBox(
+                  width: 4,
+                ),
+                PLS10('Back', Colors.black, 1),
+              ]),
+            ),
+
+            //the close button
+
+            InkWell(onTap: cancelAction, child: Icon(Icons.close, size: 16))
+          ],
+        ),
       ),
       onTap: () => Navigator.of(context).pop(),
     );
@@ -196,7 +222,7 @@ class SmallView extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        label: BBBS12(buttonText, Colors.black, 1, TextAlign.start));
+        label: BBBS12(buttonText, Colors.black, 1));
   }
 }
 
@@ -225,5 +251,28 @@ class ArrowIButton extends StatelessWidget {
           )),
           onTap: onPressed,
         ));
+  }
+}
+
+//edit button with heading
+
+class EditLabel extends StatelessWidget {
+  String label;
+
+  EditLabel(this.label);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 1.0,
+      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+        BBLM14(label, Colors.black, 1, TextAlign.left),
+        Icon(
+          Icons.edit,
+          size: 16,
+          color: AppTheme.colors.blue500,
+        )
+      ]),
+    );
   }
 }

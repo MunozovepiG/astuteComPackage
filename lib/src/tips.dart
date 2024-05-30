@@ -12,7 +12,7 @@ class GeneralTip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.80,
+      width: MediaQuery.of(context).size.width * 0.90,
 
       //height: 110,
       decoration: ShapeDecoration(
@@ -45,7 +45,7 @@ class GeneralTip extends StatelessWidget {
               ),
               Container(
                 //color: Colors.green,
-                width: (MediaQuery.of(context).size.width * 0.60),
+                width: (MediaQuery.of(context).size.width * 0.70),
                 child: BBL16(heading!, Colors.white, 2),
               )
             ],
@@ -53,7 +53,7 @@ class GeneralTip extends StatelessWidget {
           SS8(),
           Container(
             // color: Colors.green,
-            width: (MediaQuery.of(context).size.width * 0.70),
+            width: (MediaQuery.of(context).size.width * 0.80),
             child: BBRM14(decsription!, Colors.white, 4, TextAlign.left),
           )
         ]),
@@ -78,7 +78,7 @@ class TipsWAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.80,
+      width: MediaQuery.of(context).size.width * 0.90,
 
       //height: 110,
       decoration: ShapeDecoration(
@@ -110,7 +110,7 @@ class TipsWAction extends StatelessWidget {
               ),
               Container(
                 //color: Colors.green,
-                width: (MediaQuery.of(context).size.width * 0.60),
+                width: (MediaQuery.of(context).size.width * 0.70),
                 child: BBL16(heading!, Colors.black, 2),
               )
             ],
@@ -127,7 +127,7 @@ class TipsWAction extends StatelessWidget {
               ),
               Container(
                 // color: Colors.green,
-                width: (MediaQuery.of(context).size.width * 0.60),
+                width: (MediaQuery.of(context).size.width * 0.70),
                 child: BBRM14(decsription!, Colors.black, 4, TextAlign.left),
               ),
             ],

@@ -121,7 +121,7 @@ class _MonthlyCalendarState extends State<MonthlyCalendar> {
     return Column(
       crossAxisAlignment: widget.crossAxisAlignment,
       children: [
-        PLS10(widget.labelText, AppTheme.colors.grey800, 1),
+        ILM12(widget.labelText, AppTheme.colors.grey650, 1),
         IconTextButton(
             icon: Icons.calendar_month_outlined,
             color: widget.iconColor,

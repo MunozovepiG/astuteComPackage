@@ -12,3 +12,6 @@ export 'src/textFormField.dart';
 export 'src/theme.dart';
 export 'src/trackers.dart';
 export 'src/label.dart';
+export 'src/tips.dart';
+export 'src/alerts.dart';
+export 'src/chips.dart';

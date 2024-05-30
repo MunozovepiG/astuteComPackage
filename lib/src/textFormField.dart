@@ -12,24 +12,22 @@ class MyCustomTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final bool obscureText;
   final void Function(String)? onChanged;
-  final Color backgroundColor;
+
   final String inputLabelText;
   final List<TextInputFormatter>? inputFormatters;
-  int? maxLength;
 
-  MyCustomTextField(
-      {Key? key,
-      required this.controller,
-      this.validator,
-      this.hintText,
-      this.labelText,
-      this.keyboardType,
-      this.obscureText = false,
-      this.onChanged,
-      required this.backgroundColor,
-      required this.inputLabelText,
-      this.inputFormatters,
-      this.maxLength});
+  MyCustomTextField({
+    Key? key,
+    required this.controller,
+    this.validator,
+    this.hintText,
+    this.labelText,
+    this.keyboardType,
+    this.obscureText = false,
+    this.onChanged,
+    required this.inputLabelText,
+    this.inputFormatters,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,44 +36,41 @@ class MyCustomTextField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ILM12(inputLabelText, AppTheme.colors.grey650, 1),
-          SS8(),
+          BBLM14(inputLabelText, Colors.black, 1, TextAlign.left),
+          SS16(),
           Container(
-            width: MediaQuery.of(context).size.width * 0.90,
-            height: 56,
-            decoration: BoxDecoration(
-              color: backgroundColor,
-              border: Border(
-                bottom: BorderSide(
-                  color: AppTheme
-                      .colors.black, // Set your desired border color here
-                  width: 0.5, // Set the desired border width
-                ),
-              ),
-            ),
-            child: Padding(
-              padding: EdgeInsets.only(
-                  left: 12.0, top: (maxLength != null) ? 24 : 0),
+              width: MediaQuery.of(context).size.width * 0.90,
+              height: 56,
+              color: Colors.white,
               child: TextFormField(
                 controller: controller,
                 inputFormatters: inputFormatters,
                 validator: validator,
-                maxLength: maxLength,
                 decoration: InputDecoration(
-                    hintText: hintText,
-                    border: InputBorder.none,
-                    labelText: labelText,
-                    labelStyle: TextStyle(
-                      color: AppTheme.colors.grey650,
-                      fontSize: 12,
-                      fontFamily: 'Roboto',
-                    )),
+                  hintText: hintText,
+                  labelText: labelText,
+                  labelStyle: TextStyle(
+                    color: AppTheme.colors.grey650,
+                    fontSize: 12,
+                    fontFamily: 'Roboto',
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xfbb49454F)),
+                  ),
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xfbb49454F)),
+                  ),
+                  errorBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xfbb49454F)),
+                  ),
+                  focusedErrorBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xfbb49454F)),
+                  ),
+                ),
                 keyboardType: keyboardType,
                 obscureText: obscureText,
                 onChanged: onChanged,
-              ),
-            ),
-          ),
+              )),
         ],
       ),
     );

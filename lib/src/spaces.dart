@@ -9,6 +9,33 @@ class StandardTopSpace extends StatelessWidget {
   }
 }
 
+class SS128 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 128,
+    );
+  }
+}
+
+class SS72 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 72,
+    );
+  }
+}
+
+class SS32 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 32,
+    );
+  }
+}
+
 class SS36 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
