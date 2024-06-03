@@ -4,8 +4,13 @@ import 'package:flutter/material.dart';
 
 class InformationAlert extends StatelessWidget {
   final VoidCallback closeAlert;
+  final String alertHeading;
+  final String alertDescription;
 
-  InformationAlert(this.closeAlert);
+  InformationAlert(
+      {required this.closeAlert,
+      required this.alertDescription,
+      required this.alertHeading});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,9 +53,9 @@ class InformationAlert extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    BTM16('Text', Colors.black, 1),
+                    BTM16(alertHeading, Colors.black, 1),
                     SS8(),
-                    RR14('hey', Colors.black, 5)
+                    RR14(alertDescription, Colors.black, 5)
                   ],
                 ),
               ),
@@ -67,8 +72,13 @@ class InformationAlert extends StatelessWidget {
 
 class SuccessAlert extends StatelessWidget {
   final VoidCallback closeAlert;
+  final String alertHeading;
+  final String alertDescription;
 
-  SuccessAlert(this.closeAlert);
+  SuccessAlert(
+      {required this.closeAlert,
+      required this.alertHeading,
+      required this.alertDescription});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -111,9 +121,9 @@ class SuccessAlert extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    BTM16('Text', Colors.black, 1),
+                    BTM16(alertHeading, Colors.black, 1),
                     SS8(),
-                    RR14('hey', Colors.black, 5)
+                    RR14(alertDescription, Colors.black, 5)
                   ],
                 ),
               ),

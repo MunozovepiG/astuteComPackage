@@ -36,7 +36,7 @@ class MyCustomTextField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          BBLM14(inputLabelText, Colors.black, 1, TextAlign.left),
+          BBLM14(inputLabelText, Colors.black, 2, TextAlign.left),
           SS16(),
           Container(
               width: MediaQuery.of(context).size.width * 0.90,

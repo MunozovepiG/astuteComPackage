@@ -237,3 +237,66 @@ class _CustomDropdownState extends State<CustomDropdown> {
     );
   }
 }
+
+class AstuteSlectionButton extends StatefulWidget {
+  final String itemText;
+  final bool initialSelected;
+  final VoidCallback selectionFunction;
+
+  AstuteSlectionButton({
+    required this.itemText,
+    required this.selectionFunction,
+    required this.initialSelected,
+  });
+
+  @override
+  State<AstuteSlectionButton> createState() => _AstuteSlectionButtonState();
+}
+
+class _AstuteSlectionButtonState extends State<AstuteSlectionButton> {
+  late bool isSelected;
+
+  @override
+  void initState() {
+    super.initState();
+    isSelected = widget.initialSelected;
+  }
+
+  void toggleSelection() {
+    setState(() {
+      isSelected = !isSelected;
+    });
+    widget.selectionFunction();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: toggleSelection,
+      child: Container(
+        constraints: BoxConstraints(
+          minHeight: 56, // Set the minimum height here
+        ),
+        decoration: ShapeDecoration(
+          color: (isSelected)
+              ? AppTheme.colors.pink200.withOpacity(0.55)
+              : Colors.white, // Adjust the color as needed
+          shape: RoundedRectangleBorder(
+            side: BorderSide(width: 1, color: Color(0x8C1C1B1F)),
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            children: [
+              isSelected
+                  ? BR16(widget.itemText, AppTheme.colors.blue500, 1)
+                  : RR16(widget.itemText, Colors.black, 1)
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

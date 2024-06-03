@@ -136,38 +136,46 @@ class PlainTextButton extends StatelessWidget {
 
 class CBButton extends StatelessWidget {
   final VoidCallback cancelAction;
+  final bool backButton;
 
-  CBButton({required this.cancelAction});
+  CBButton({
+    required this.cancelAction,
+    bool? backButton,
+  }) : this.backButton = backButton ?? true; // Assign default value
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      child: Container(
-        width: MediaQuery.of(context).size.width * 1.0,
-        // color: Colors.green,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              child: Row(children: [
-                Icon(
-                  Icons.arrow_back,
-                  size: 14,
+    return Container(
+      width: MediaQuery.of(context).size.width * 1.0,
+      // color: Colors.green,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          (backButton)
+              ? InkWell(
+                  onTap: () => Navigator.of(context).pop(),
+                  child: Container(
+                    child: Row(children: [
+                      Icon(
+                        Icons.arrow_back,
+                        size: 14,
+                      ),
+                      SizedBox(
+                        width: 4,
+                      ),
+                      PLS10('Back', Colors.black, 1),
+                    ]),
+                  ),
+                )
+              : SizedBox(
+                  height: 0,
                 ),
-                SizedBox(
-                  width: 4,
-                ),
-                PLS10('Back', Colors.black, 1),
-              ]),
-            ),
 
-            //the close button
+          //the close button
 
-            InkWell(onTap: cancelAction, child: Icon(Icons.close, size: 16))
-          ],
-        ),
+          InkWell(onTap: cancelAction, child: Icon(Icons.close, size: 16))
+        ],
       ),
-      onTap: () => Navigator.of(context).pop(),
     );
   }
 }

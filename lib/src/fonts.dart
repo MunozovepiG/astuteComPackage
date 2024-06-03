@@ -364,3 +364,20 @@ class ErrorMessage extends StatelessWidget {
     );
   }
 }
+
+class RR16 extends StatelessWidget {
+  @override
+  final String title;
+  final Color? color;
+  final int maxLines;
+  RR16(this.title, this.color, this.maxLines);
+
+  Widget build(BuildContext context) {
+    return AutoSizeText(title,
+        maxLines: maxLines,
+        style: GoogleFonts.roboto(
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+            color: color ?? Colors.black));
+  }
+}

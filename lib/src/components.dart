@@ -14,23 +14,19 @@ class CustomDatePicker extends StatefulWidget {
 
   DateTime minDate;
   DateTime maxDate;
-  DateTime intialDate;
-  //final Color calendarColor;
+  DateTime initialDate;
 
-  //final ValueChanged<DateTime> onChanged;
-
-  CustomDatePicker(
-      {required this.primaryColor,
-      required this.onDateSelected,
-      required this.colorscheme,
-      required this.iconColor,
-      required this.labelText,
-      required this.minDate,
-      required this.maxDate,
-      required this.intialDate,
-      required this.crossAxisAlignment
-      //required this.calendarColor,
-      });
+  CustomDatePicker({
+    required this.primaryColor,
+    required this.onDateSelected,
+    required this.colorscheme,
+    required this.iconColor,
+    required this.labelText,
+    required this.minDate,
+    required this.maxDate,
+    required this.initialDate,
+    required this.crossAxisAlignment,
+  });
 
   @override
   State<CustomDatePicker> createState() => _CustomDatePickerState();
@@ -44,42 +40,64 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: widget.crossAxisAlignment,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        BB10(widget.labelText, AppTheme.colors.grey800, 1, TextAlign.left),
-        IconTextButton(
-            icon: Icons.calendar_month_outlined,
-            color: widget.iconColor,
-            text: formattedDate,
-            onPressed: () => _selectDate(context),
-            textColor: Colors.black),
+        BBLM14(widget.labelText, Colors.black, 1, TextAlign.left),
+        VS4(),
+        Container(
+          height: 48,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border(
+              bottom: BorderSide(
+                color: Color(0xff49454F), // Border color
+                width: 2.0, // Border width
+              ),
+            ),
+          ),
+          child: Padding(
+            padding:
+                const EdgeInsets.only(left: 8.0, right: 16, top: 8, bottom: 8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(formattedDate,
+                    style: TextStyle(color: Colors.black, fontSize: 18)),
+                InkWell(
+                  onTap: () => _selectDate(context),
+                  child: Icon(
+                    Icons.calendar_today_outlined,
+                    size: 16,
+                    color: widget.iconColor,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
 
   Future<void> _selectDate(BuildContext context) async {
-    DateTime currentDate = DateTime.now();
-    DateTime minDate =
-        currentDate.subtract(const Duration(days: 90 * 365)); // 90 years ago
-    DateTime maxDate =
-        currentDate.subtract(const Duration(days: 14 * 365)); // 14 years ago
-
-    DateTime initialDate = maxDate;
-    if (currentDate.isBefore(maxDate)) {
-      initialDate = currentDate;
-    }
-
     final DateTime? pickedDate = await showDatePicker(
-        context: context,
-        initialDate: widget.intialDate,
-        firstDate: widget.minDate,
-        lastDate: currentDate,
-        //neeed to review the calendar color how to make it dynamic
-        builder: (context, child) {
-          return Theme(
-              data: Theme.of(context).copyWith(colorScheme: widget.colorscheme),
-              child: child!);
-        });
+      context: context,
+      initialDate: widget.initialDate,
+      firstDate: widget.minDate,
+      lastDate: widget.maxDate,
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: widget.colorscheme.copyWith(
+              surface: AppTheme.colors.white
+                  .withOpacity(1.0), // Set the background color of the calendar
+            ),
+          ),
+          child: child!,
+        );
+      },
+    );
+
     if (pickedDate != null && pickedDate != _selectedDate) {
       setState(() {
         _selectedDate = pickedDate;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../astute_components.dart';
 
@@ -6,16 +7,28 @@ import '../astute_components.dart';
 
 class BAHTSh extends StatelessWidget {
   final String imageUrl;
+  final bool s1TrackerA;
   final bool s1TrackerIC;
   final bool s1TrackerC;
+  final bool s3TrackerA;
+  final bool s4TrackerA;
   final bool s4TrackerC;
   final String title;
 
-  final bool backButton;
   final VoidCallback cancelAction;
+  bool? backButton = true;
 
-  BAHTSh(this.imageUrl, this.s1TrackerIC, this.s1TrackerC, this.s4TrackerC,
-      this.title, this.backButton, this.cancelAction);
+  BAHTSh(
+      {required this.imageUrl,
+      required this.s1TrackerA,
+      required this.s1TrackerIC,
+      required this.s1TrackerC,
+      required this.s3TrackerA,
+      required this.s4TrackerA,
+      required this.s4TrackerC,
+      required this.cancelAction,
+      required this.title,
+      this.backButton});
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +36,23 @@ class BAHTSh extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.90,
       child: Column(children: [
         StandardTopSpace(),
-        if (backButton)
-          CBButton(
-            cancelAction: cancelAction,
-          ),
+
+        CBButton(
+          backButton: backButton,
+          cancelAction: cancelAction,
+        ),
 
         SS32(),
         //profile image
 
         // getCircleImage(imageUrl),
-        if (s1TrackerC) S1trackerC(),
-        if (s1TrackerIC) S1trackerIC(),
+        if (s1TrackerA) S1trackerIC(),
+        if (s1TrackerIC) S1trackerC(),
+        if (s1TrackerC) S2trackerIC(),
+
+        if (s3TrackerA) S3trackerIC(),
+        if (s4TrackerA) S4trackerIC(),
+
         if (s4TrackerC) S4trackerC(),
         MS24(),
         SH25(title, Colors.black, 1),
@@ -96,10 +115,10 @@ class BHCTSh extends StatelessWidget {
         if (s3trackerIC) S3trackerIC(),
         if (s4trackerIC) S4trackerIC(),
         SS16(),
-        BTM36(title, titleColor, 1),
+        BTM36(title, titleColor, 3),
         SH18(caption, captionColor, 1),
         MS24(),
-        BBLM14(subheading, Colors.black, 1, TextAlign.left),
+        BBLM14(subheading, Colors.black, 3, TextAlign.left),
       ]),
     );
   }
@@ -138,7 +157,7 @@ class HeaderwAction extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            BBLM14(pageHeadng, Colors.black, 1, TextAlign.left),
+            BBLM14(pageHeadng, Colors.black, 3, TextAlign.left),
           ],
         ),
         Row(
