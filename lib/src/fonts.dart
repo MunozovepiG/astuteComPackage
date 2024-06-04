@@ -295,6 +295,23 @@ class BR16 extends StatelessWidget {
   }
 }
 
+class BR18 extends StatelessWidget {
+  @override
+  final String title;
+  final Color? color;
+  final int maxLines;
+  BR18(this.title, this.color, this.maxLines);
+
+  Widget build(BuildContext context) {
+    return AutoSizeText(title,
+        maxLines: maxLines,
+        style: GoogleFonts.roboto(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            color: color ?? Colors.black));
+  }
+}
+
 class RR14 extends StatelessWidget {
   @override
   final String title;
