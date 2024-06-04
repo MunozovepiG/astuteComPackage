@@ -266,8 +266,9 @@ class ArrowIButton extends StatelessWidget {
 
 class EditLabel extends StatelessWidget {
   String label;
+  VoidCallback editFunction;
 
-  EditLabel(this.label);
+  EditLabel(this.label, this.editFunction);
 
   @override
   Widget build(BuildContext context) {
@@ -275,10 +276,13 @@ class EditLabel extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 1.0,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         BBLM14(label, Colors.black, 1, TextAlign.left),
-        Icon(
-          Icons.edit,
-          size: 16,
-          color: AppTheme.colors.blue500,
+        InkWell(
+          onTap: editFunction,
+          child: Icon(
+            Icons.edit,
+            size: 16,
+            color: AppTheme.colors.blue500,
+          ),
         )
       ]),
     );

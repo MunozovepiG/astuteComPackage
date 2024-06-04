@@ -84,6 +84,7 @@ class SH25 extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoSizeText(title,
         maxLines: maxLines,
+        textAlign: TextAlign.center,
         style: GoogleFonts.montserrat(
             fontSize: 25,
             fontWeight: FontWeight.bold,

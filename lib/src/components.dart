@@ -61,8 +61,7 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(formattedDate,
-                    style: TextStyle(color: Colors.black, fontSize: 18)),
+                BR16(formattedDate, Colors.black, 1),
                 InkWell(
                   onTap: () => _selectDate(context),
                   child: Icon(
@@ -107,6 +106,58 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
         widget.onDateSelected!(formattedDate);
       }
     }
+  }
+}
+
+class DefaultCalendarButton extends StatelessWidget {
+  final String labelText;
+  final String date;
+  final VoidCallback calendarFunction;
+
+  DefaultCalendarButton(
+      {required this.labelText,
+      required this.date,
+      required this.calendarFunction});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        BBLM14(labelText, Colors.black, 1, TextAlign.left),
+        VS4(),
+        Container(
+          height: 48,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border(
+              bottom: BorderSide(
+                color: Color(0xff49454F), // Border color
+                width: 2.0, // Border width
+              ),
+            ),
+          ),
+          child: Padding(
+            padding:
+                const EdgeInsets.only(left: 8.0, right: 16, top: 8, bottom: 8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                BR16(date, Colors.black, 1),
+                InkWell(
+                  onTap: calendarFunction,
+                  child: Icon(
+                    Icons.calendar_today_outlined,
+                    size: 16,
+                    color: AppTheme.colors.blue500,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
 

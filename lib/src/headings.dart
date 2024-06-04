@@ -55,7 +55,11 @@ class BAHTSh extends StatelessWidget {
 
         if (s4TrackerC) S4trackerC(),
         MS24(),
-        SH25(title, Colors.black, 1),
+        SH25(
+          title,
+          Colors.black,
+          3,
+        ),
       ]),
     );
   }
