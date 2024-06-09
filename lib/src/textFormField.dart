@@ -37,10 +37,10 @@ class MyCustomTextField extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           BBLM14(inputLabelText, Colors.black, 2, TextAlign.left),
-          SS16(),
+          SS8(),
           Container(
               width: MediaQuery.of(context).size.width * 0.90,
-              height: 56,
+              height: 48,
               color: Colors.white,
               child: TextFormField(
                 controller: controller,
@@ -76,7 +76,6 @@ class MyCustomTextField extends StatelessWidget {
     );
   }
 }
-
 // large text form field
 
 class LongTextField extends StatelessWidget {

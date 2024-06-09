@@ -18,25 +18,24 @@ class BAHTSh extends StatelessWidget {
   final VoidCallback cancelAction;
   bool? backButton = true;
 
-  BAHTSh(
-      {required this.imageUrl,
-      required this.s1TrackerA,
-      required this.s1TrackerIC,
-      required this.s1TrackerC,
-      required this.s3TrackerA,
-      required this.s4TrackerA,
-      required this.s4TrackerC,
-      required this.cancelAction,
-      required this.title,
-      this.backButton});
+  BAHTSh({
+    required this.imageUrl,
+    required this.s1TrackerA,
+    required this.s1TrackerIC,
+    required this.s1TrackerC,
+    required this.s3TrackerA,
+    required this.s4TrackerA,
+    required this.s4TrackerC,
+    required this.cancelAction,
+    required this.title,
+    this.backButton,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.90,
       child: Column(children: [
-        StandardTopSpace(),
-
         CBButton(
           backButton: backButton,
           cancelAction: cancelAction,

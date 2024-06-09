@@ -73,171 +73,6 @@ class _RadioButtonsState extends State<RadioButtons> {
   }
 }
 
-//the dropdown
-
-class MyDropdown extends StatefulWidget {
-  final List<String> values;
-  final String preselectedValue;
-  final Function(String) onChanged;
-  final Color iconColor;
-  final Color borderColor;
-  final String? labelText;
-
-  MyDropdown(
-      {required this.values,
-      required this.preselectedValue,
-      required this.onChanged,
-      required this.iconColor,
-      required this.borderColor,
-      required this.labelText});
-
-  @override
-  _MyDropdownState createState() => _MyDropdownState();
-}
-
-class _MyDropdownState extends State<MyDropdown> {
-  late String _selectedValue;
-
-  @override
-  void initState() {
-    super.initState();
-    _selectedValue = widget.preselectedValue;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.90,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ILM12('${widget.labelText}', AppTheme.colors.grey650, 1),
-          SS8(),
-          Container(
-            width: MediaQuery.of(context).size.width * 0.90,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: widget.borderColor, width: 2),
-            ),
-            child: DropdownButtonFormField<String>(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                ),
-              ),
-              icon: Icon(Icons.arrow_drop_down, color: widget.iconColor),
-              value: _selectedValue,
-              items: widget.values
-                  .map(
-                    (value) => DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    ),
-                  )
-                  .toList(),
-              onChanged: (value) {
-                if (value != null && value != _selectedValue) {
-                  setState(() {
-                    _selectedValue = value;
-                    widget.onChanged(_selectedValue);
-                  });
-                }
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-//dropw down where active and deactive
-class CustomDropdown extends StatefulWidget {
-  final List<String> values;
-  final String preselectedValue;
-  final Function(String) onChanged;
-  final Color iconColor;
-  final Color borderColor;
-  final String? labelText;
-  final bool disabled; // New property
-  final Color? backgroundColor;
-
-  CustomDropdown(
-      {required this.values,
-      required this.preselectedValue,
-      required this.onChanged,
-      required this.iconColor,
-      required this.borderColor,
-      required this.labelText,
-      this.disabled = false,
-      this.backgroundColor // Default value is false
-      });
-
-  @override
-  _CustomDropdownState createState() => _CustomDropdownState();
-}
-
-class _CustomDropdownState extends State<CustomDropdown> {
-  late String _selectedValue;
-
-  @override
-  void initState() {
-    super.initState();
-    _selectedValue = widget.preselectedValue;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.90,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ILM12('${widget.labelText}', AppTheme.colors.grey650, 1),
-          SS8(),
-          Container(
-            width: MediaQuery.of(context).size.width * 0.90,
-            decoration: BoxDecoration(
-              color: widget.backgroundColor,
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(color: widget.borderColor, width: 2),
-            ),
-            child: IgnorePointer(
-              ignoring: widget
-                  .disabled, // Disable interaction based on the 'disabled' property
-              child: DropdownButtonFormField<String>(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-                icon: Icon(Icons.arrow_drop_down, color: widget.iconColor),
-                value: _selectedValue,
-                items: widget.values
-                    .map(
-                      (value) => DropdownMenuItem<String>(
-                        value: value,
-                        child: Text(value),
-                      ),
-                    )
-                    .toList(),
-                onChanged: (value) {
-                  if (value != null && value != _selectedValue) {
-                    setState(() {
-                      _selectedValue = value;
-                      widget.onChanged(_selectedValue);
-                    });
-                  }
-                },
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class AstuteSlectionButton extends StatefulWidget {
   final String itemText;
   final bool initialSelected;
@@ -296,6 +131,165 @@ class _AstuteSlectionButtonState extends State<AstuteSlectionButton> {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class MyDropdown extends StatefulWidget {
+  final List<String> values;
+  final String preselectedValue;
+  final Function(String) onChanged;
+  final String? labelText;
+
+  MyDropdown(
+      {required this.values,
+      required this.preselectedValue,
+      required this.onChanged,
+      required this.labelText});
+
+  @override
+  _MyDropdownState createState() => _MyDropdownState();
+}
+
+class _MyDropdownState extends State<MyDropdown> {
+  late String _selectedValue;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedValue = widget.preselectedValue;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.90,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          BBLM14('${widget.labelText}', Colors.black, 1, TextAlign.left),
+          SS8(),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.90,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: AppTheme.colors.blue500, width: 2),
+            ),
+            child: DropdownButtonFormField<String>(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                ),
+              ),
+              icon: Icon(Icons.arrow_drop_down, color: AppTheme.colors.blue500),
+              isDense: true, //
+              value: _selectedValue,
+              items: widget.values
+                  .map(
+                    (value) => DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    ),
+                  )
+                  .toList(),
+              onChanged: (value) {
+                if (value != null && value != _selectedValue) {
+                  setState(() {
+                    _selectedValue = value;
+                    widget.onChanged(_selectedValue);
+                  });
+                }
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//dropw down where active and deactive
+class CustomDropdown extends StatefulWidget {
+  final List<String> values;
+  final String preselectedValue;
+  final Function(String) onChanged;
+
+  final String? labelText;
+  final bool disabled; // New property
+
+  CustomDropdown({
+    required this.values,
+    required this.preselectedValue,
+    required this.onChanged,
+    required this.labelText,
+    this.disabled = false,
+  });
+
+  @override
+  _CustomDropdownState createState() => _CustomDropdownState();
+}
+
+class _CustomDropdownState extends State<CustomDropdown> {
+  late String _selectedValue;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedValue = widget.preselectedValue;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width * 0.90,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          BBLM14('${widget.labelText}', Colors.black, 1, TextAlign.left),
+          SS8(),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.90,
+            //  height: 56,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: AppTheme.colors.blue500, width: 2),
+            ),
+            child: IgnorePointer(
+              ignoring: widget
+                  .disabled, // Disable interaction based on the 'disabled' property
+              child: DropdownButtonFormField<String>(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+                icon:
+                    Icon(Icons.arrow_drop_down, color: AppTheme.colors.blue500),
+                value: _selectedValue,
+                isDense: true, // Reduces the vertical padding
+                items: widget.values
+                    .map(
+                      (value) => DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      ),
+                    )
+                    .toList(),
+                onChanged: (value) {
+                  if (value != null && value != _selectedValue) {
+                    setState(() {
+                      _selectedValue = value;
+                      widget.onChanged(_selectedValue);
+                    });
+                  }
+                },
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
