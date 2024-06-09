@@ -15,19 +15,20 @@ class MyCustomTextField extends StatelessWidget {
 
   final String inputLabelText;
   final List<TextInputFormatter>? inputFormatters;
+  final String? prefextOption;
 
-  MyCustomTextField({
-    Key? key,
-    required this.controller,
-    this.validator,
-    this.hintText,
-    this.labelText,
-    this.keyboardType,
-    this.obscureText = false,
-    this.onChanged,
-    required this.inputLabelText,
-    this.inputFormatters,
-  });
+  MyCustomTextField(
+      {Key? key,
+      required this.controller,
+      this.validator,
+      this.hintText,
+      this.labelText,
+      this.keyboardType,
+      this.obscureText = false,
+      this.onChanged,
+      required this.inputLabelText,
+      this.inputFormatters,
+      this.prefextOption});
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +48,7 @@ class MyCustomTextField extends StatelessWidget {
                 inputFormatters: inputFormatters,
                 validator: validator,
                 decoration: InputDecoration(
+                  prefixText: prefextOption,
                   hintText: hintText,
                   labelText: labelText,
                   labelStyle: TextStyle(
