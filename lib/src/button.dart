@@ -139,14 +139,17 @@ class CBButton extends StatelessWidget {
   final bool backButton;
   final Color? color;
   final bool closeButton;
+  final VoidCallback? backButtonAction;
 
-  CBButton({
-    required this.cancelAction,
-    this.color,
-    bool? backButton,
-    bool? closeButton,
-  })  : this.backButton = backButton ?? true,
-        this.closeButton = backButton ?? true; // Assign default value
+  CBButton(
+      {required this.cancelAction,
+      this.color,
+      bool? backButton,
+      bool? closeButton,
+      this.backButtonAction})
+      : this.backButton = backButton ?? true,
+        this.closeButton = closeButton ?? true;
+  // Assign default value
 
   @override
   Widget build(BuildContext context) {
@@ -158,7 +161,7 @@ class CBButton extends StatelessWidget {
         children: [
           (backButton)
               ? InkWell(
-                  onTap: () => Navigator.of(context).pop(),
+                  onTap: () => backButtonAction ?? Navigator.of(context).pop(),
                   child: Container(
                     child: Row(children: [
                       Icon(
