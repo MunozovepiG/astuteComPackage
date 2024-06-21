@@ -138,7 +138,7 @@ class CBButton extends StatelessWidget {
   final VoidCallback cancelAction;
   final bool backButton;
   final Color? color;
-  final bool? closeButton;
+  final bool closeButton;
 
   CBButton({
     required this.cancelAction,
