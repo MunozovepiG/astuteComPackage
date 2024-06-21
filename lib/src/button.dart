@@ -137,9 +137,11 @@ class PlainTextButton extends StatelessWidget {
 class CBButton extends StatelessWidget {
   final VoidCallback cancelAction;
   final bool backButton;
+  final Color? color;
 
   CBButton({
     required this.cancelAction,
+    this.color,
     bool? backButton,
   }) : this.backButton = backButton ?? true; // Assign default value
 
@@ -159,11 +161,12 @@ class CBButton extends StatelessWidget {
                       Icon(
                         Icons.arrow_back,
                         size: 14,
+                        color: color ?? Colors.black,
                       ),
                       SizedBox(
                         width: 4,
                       ),
-                      PLS10('Back', Colors.black, 1),
+                      PLS10('Back', color ?? Colors.black, 1),
                     ]),
                   ),
                 )
