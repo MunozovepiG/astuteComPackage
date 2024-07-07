@@ -20,6 +20,7 @@ class AppColors {
   final green300 = const Color(0xffbCFF850);
 
   final green150 = const Color(0xFFF5FBD6);
+  final green400 = const Color(0xfbb78BC61);
   final bluegreen200 = const Color(0xCCE7FDF7);
   final green800 = const Color(0xffbb00330F);
   final lavender500 = const Color(0xfbbA386DA);
@@ -27,8 +28,9 @@ class AppColors {
   final lavender750 = const Color(0xfbbA386DA);
   final orange200 = const Color(0xffbFFDAAF);
   final orange500 = const Color(0xffbFE6E04);
+  final orange650 = const Color(0xFFEE6352);
   final orange800 = const Color(0xfbbB24D03);
-  final pink200 = const Color(0xfbbFDD7F08C);
+  final pink200 = const Color(0xfbbFDE7F2);
 
   const AppColors();
 }
