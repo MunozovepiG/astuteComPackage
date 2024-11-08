@@ -15,3 +15,4 @@ export 'src/label.dart';
 export 'src/tips.dart';
 export 'src/alerts.dart';
 export 'src/chips.dart';
+export 'src/newComponents.dart';

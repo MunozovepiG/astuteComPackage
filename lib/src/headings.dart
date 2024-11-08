@@ -36,7 +36,8 @@ class BAHTSh extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width * 0.90,
       child: Column(children: [
-        StandardTopSpace(),
+        SS36(),
+        VS4(),
 
         CBButton(
           backButton: backButton,
@@ -106,7 +107,9 @@ class BHCTSh extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width * 0.90,
       child: Column(children: [
-        LS64(),
+        SizedBox(
+          height: 40,
+        ),
         if (backButton)
           CBButton(
             cancelAction: cancelAction,

@@ -14,7 +14,7 @@ class MediumMainButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Color(0xffb3E63D3),
+          backgroundColor: Color(0xffb3E63D3),
           shadowColor: Color.fromRGBO(24, 24, 22, 0.2),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
