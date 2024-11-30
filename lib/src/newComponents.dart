@@ -12,12 +12,14 @@ class AstuteRadioButton extends StatefulWidget {
   final String itemText;
   final bool initialSelected;
   final VoidCallback selectionFunction;
+  final String selectedText;
 
   const AstuteRadioButton({
     super.key,
     required this.itemText,
     required this.selectionFunction,
     required this.initialSelected,
+    required this.selectedText,
   });
 
   @override
@@ -29,30 +31,65 @@ class _AstuteRadioButtonState extends State<AstuteRadioButton> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: widget.selectionFunction,
-      child: Container(
-        constraints: const BoxConstraints(
-          minHeight: 56, // Set the minimum height here
-        ),
-        decoration: ShapeDecoration(
-          color: (widget.initialSelected)
-              ? const Color(0xffbfde7f2)
-              : Colors.white, // Adjust the color as needed
-          shape: RoundedRectangleBorder(
-            side: const BorderSide(width: 1, color: Color(0x8C1C1B1F)),
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Row(
-            children: [
-              widget.initialSelected
-                  ? BR16(widget.itemText, AppTheme.colors.blue500, 1)
-                  : RR16(widget.itemText, Colors.black, 1)
-            ],
-          ),
-        ),
-      ),
+      child: (widget.initialSelected)
+          ? Container(
+              constraints: const BoxConstraints(
+                minHeight: 56, // Set the minimum height here
+              ),
+              decoration: ShapeDecoration(
+                color: Color(0xffbFDDDB6)
+                    .withOpacity(0.25), // Adjust the color as needed
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.70,
+                          child: BR16(widget.itemText, Color(0xffbFE6E04), 2),
+                        ),
+                        Icon(
+                          Icons.check,
+                          color: Color(0xffbFE6E04),
+                        )
+                      ],
+                    ),
+                    VS4(),
+                    BR16(widget.selectedText, Color(0xffbFE6E04), 6)
+                  ],
+                ),
+              ),
+            )
+          : Container(
+              constraints: const BoxConstraints(
+                minHeight: 56, // Set the minimum height here
+              ),
+              decoration: ShapeDecoration(
+                color: Colors.white, // Adjust the color as needed
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(width: 1, color: Color(0x8C1C1B1F)),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  children: [
+                    widget.initialSelected
+                        ? BR16(widget.itemText, AppTheme.colors.blue500, 1)
+                        : RR16(widget.itemText, Colors.black, 1)
+                  ],
+                ),
+              ),
+            ),
     );
   }
 }
@@ -1921,19 +1958,6 @@ class TestingUI extends StatelessWidget {
   }
 }
 
-class RM14 extends StatelessWidget {
-  String text;
-  Color? color;
-  int maxLines;
-
-  RM14({required this.text, this.color, required this.maxLines});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-
 class PlanRow extends StatelessWidget {
   String firstLabel;
   String secondLabel;
@@ -2190,5 +2214,225 @@ class CABML16 extends StatelessWidget {
             fontSize: 16,
             fontWeight: FontWeight.w700,
             color: color ?? Colors.black));
+  }
+}
+
+class RM14 extends StatelessWidget {
+  String text;
+  Color? color;
+  int maxLines;
+
+  RM14({required this.text, required this.maxLines, this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: GoogleFonts.montserrat(
+          fontSize: 14,
+          color: color ?? Colors.black,
+          fontWeight: FontWeight.w500),
+    );
+  }
+}
+
+class BLM25 extends StatelessWidget {
+  String text;
+  BLM25({required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: GoogleFonts.montserrat(
+          fontSize: 25, color: Colors.black, fontWeight: FontWeight.w700),
+    );
+  }
+}
+
+class CardListWithButton extends StatelessWidget {
+  String heading;
+  String description;
+  bool? focus = false;
+  VoidCallback buttonFunction;
+  Color iconBackgroundColor;
+  Color iconColor;
+  IconData icon;
+
+  CardListWithButton(
+      {super.key,
+      required this.heading,
+      required this.description,
+      this.focus,
+      required this.buttonFunction,
+      required this.iconBackgroundColor,
+      required this.iconColor,
+      required this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: buttonFunction,
+      child: Container(
+        width: 373,
+        //height: 80,
+        decoration: const BoxDecoration(
+            color: Colors.white,
+            border: Border(
+              bottom: BorderSide(
+                  color: Color(0x331C1B1F), width: 1), // Width specified
+            )),
+        child: Padding(
+          padding:
+              const EdgeInsets.only(left: 12.0, top: 12, bottom: 12, right: 12),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: 48,
+                  height: 48,
+                  decoration: ShapeDecoration(
+                    color: iconBackgroundColor,
+                    shape: const OvalBorder(),
+                  ),
+                  child: Icon(
+                    icon,
+                    size: 24,
+                    color: iconColor,
+                  ),
+                ),
+                SizedBox(
+                    width: 220,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        B12(
+                            text: heading,
+                            alignment: TextAlign.left,
+                            maxLines: 1),
+                        VS4(),
+                        R12(
+                            text: description,
+                            alignment: TextAlign.left,
+                            maxLines: 1),
+                      ],
+                    )),
+                InkWell(
+                  onTap: buttonFunction,
+                  child: const Icon(
+                    Icons.arrow_forward_ios,
+                    color: Color(0xFF1C1B1F),
+                  ),
+                ),
+              ],
+            ),
+          ]),
+        ),
+      ),
+    );
+  }
+}
+
+class AlertBoxWithButton extends StatelessWidget {
+  String heading;
+  String description;
+  IconData icon;
+  String buttonText;
+  VoidCallback buttonFunction;
+  bool? disabled = false;
+
+  AlertBoxWithButton(
+      {super.key,
+      required this.heading,
+      required this.description,
+      required this.icon,
+      required this.buttonText,
+      required this.buttonFunction,
+      this.disabled});
+
+  @override
+  final Color grey650Opacity = AppTheme.colors.grey650.withOpacity(0.8);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: ShapeDecoration(
+        color: AppTheme.colors.bluegreen200,
+        shape: RoundedRectangleBorder(
+          side: BorderSide(width: 1, color: AppTheme.colors.bordergrey),
+          borderRadius: BorderRadius.circular(4),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(
+                icon,
+                size: 24,
+                color: AppTheme.colors.blue500,
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  BBL16(heading, Colors.black, 2),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  SizedBox(
+                    width: 268,
+                    child: MR14(
+                        text: description,
+                        alignment: TextAlign.left,
+                        maxLines: 4),
+                  ),
+                  const SizedBox(
+                    height: 12,
+                  ),
+                  InkWell(
+                    onTap: buttonFunction,
+                    child: Container(
+                      decoration: ShapeDecoration(
+                        color: (disabled == true)
+                            ? AppTheme.colors.grey200
+                            : const Color(0xFF3E63D3),
+                        shape: RoundedRectangleBorder(
+                          side: const BorderSide(
+                              width: 1, color: Color(0xCCA09E9D)),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 12.0, right: 12, top: 8, bottom: 8),
+                        child: Text(
+                          buttonText,
+                          style: GoogleFonts.roboto(
+                            color: (disabled == true)
+                                ? grey650Opacity
+                                : Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              )
+            ],
+          )
+        ]),
+      ),
+    );
   }
 }

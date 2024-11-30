@@ -53,20 +53,14 @@ class MyCustomTextField extends StatelessWidget {
                   labelText: labelText,
                   labelStyle: TextStyle(
                     color: AppTheme.colors.grey650,
-                    fontSize: 12,
+                    fontSize: 14,
                     fontFamily: 'Roboto',
                   ),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xfbb49454F)),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xfbb49454F)),
-                  ),
-                  errorBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xfbb49454F)),
-                  ),
-                  focusedErrorBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xfbb49454F)),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: Color(0xfbb1C1B1F).withOpacity(0.25)),
+                    borderRadius: BorderRadius.circular(
+                        8.0), // Adjust the radius as needed
                   ),
                 ),
                 keyboardType: keyboardType,

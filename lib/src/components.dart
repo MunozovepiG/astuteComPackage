@@ -11,22 +11,23 @@ class CustomDatePicker extends StatefulWidget {
   final Color iconColor;
   final String labelText;
   final CrossAxisAlignment crossAxisAlignment;
+  String? calendarLabelText;
 
   DateTime minDate;
   DateTime maxDate;
   DateTime initialDate;
 
-  CustomDatePicker({
-    required this.primaryColor,
-    required this.onDateSelected,
-    required this.colorscheme,
-    required this.iconColor,
-    required this.labelText,
-    required this.minDate,
-    required this.maxDate,
-    required this.initialDate,
-    required this.crossAxisAlignment,
-  });
+  CustomDatePicker(
+      {required this.primaryColor,
+      required this.onDateSelected,
+      required this.colorscheme,
+      required this.iconColor,
+      required this.labelText,
+      required this.minDate,
+      required this.maxDate,
+      required this.initialDate,
+      required this.crossAxisAlignment,
+      required this.calendarLabelText});
 
   @override
   State<CustomDatePicker> createState() => _CustomDatePickerState();
@@ -43,17 +44,17 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         BBLM14(widget.labelText, Colors.black, 1, TextAlign.left),
-        VS4(),
+        SS8(),
         Container(
           height: 48,
           decoration: BoxDecoration(
             color: Colors.white,
-            border: Border(
-              bottom: BorderSide(
-                color: Color(0xff49454F), // Border color
-                width: 2.0, // Border width
-              ),
+            border: Border.all(
+              color: Color(0xff1C1B1F)
+                  .withOpacity(0.25), // Border color with opacity
+              width: 2.0, // Border width
             ),
+            borderRadius: BorderRadius.circular(8.0), // Rounded corners
           ),
           child: Padding(
             padding:
@@ -81,6 +82,7 @@ class _CustomDatePickerState extends State<CustomDatePicker> {
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
+      helpText: widget.calendarLabelText,
       initialDate: widget.initialDate,
       firstDate: widget.minDate,
       lastDate: widget.maxDate,
@@ -125,7 +127,7 @@ class DefaultCalendarButton extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         BBLM14(labelText, Colors.black, 1, TextAlign.left),
-        VS4(),
+        SS8(),
         Container(
           height: 48,
           decoration: BoxDecoration(
